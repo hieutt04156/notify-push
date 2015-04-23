@@ -15,7 +15,7 @@ class NotificationPushServiceProvider
   {
     $this->app->bindShare('notificationpush', function($app){
       $config = $app->config->get('notificationpush::config');
-      return new Notification($config);
+      return new Connection($config);
     });
   }
   

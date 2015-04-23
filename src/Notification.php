@@ -10,4 +10,8 @@ class Notification {
   {
     $this->connection = Connection::getConnection();
   }
+  
+  public function send($data) {
+    return $this->connection->send($data);
+  }
 }

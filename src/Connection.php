@@ -53,5 +53,22 @@ class Connection
     return $this->_connection;  
   }
   
+  /**
+   * @param mixed $data
+   */
+  public function send($data)
+  {
+    $data = json_encode($data);
+    socket_send($this->getConnection(), $data, strlen($data), 0);
+    return $this->read();
+  }
+  
+  /**
+   * @return string 
+   */
+  public function read() 
+  {
+    return trim(socket_read($this->getConnection(), MAXLINE));  
+  }
   
 }

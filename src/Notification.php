@@ -4,6 +4,9 @@ namespace Adayroi\NotificationPush;
 use Adayroi\NotificationPush\Facedes\Connection;
 class Notification {
   
+  /**
+   * @param Connection;
+   */
   public $connection;
   
   public function __construct() 
@@ -11,7 +14,8 @@ class Notification {
     $this->connection = Connection::getConnection();
   }
   
-  public function send($data) {
+  public function send($data) 
+  {
     return $this->connection->send($data);
   }
 }

@@ -20,7 +20,8 @@ NotificationPush::send([
       'user' => 'root',
       'password' => '123456',
       'database' => '123456'
-    ]
+    ],
+    'sql' => 'select user_id from follows where follower = 1'
   ]
   
   // Meta

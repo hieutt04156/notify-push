@@ -6,11 +6,6 @@ class Connection
 {
   
   /**
-   * @param string
-   */
-  private $_servicename;
-  
-  /**
    * @var Socket
    */
   private $_connection;

@@ -1,5 +1,15 @@
 # notify-push
 
+# Config
+
+```
+return [
+  'host' => 'localhost',
+  'port' => '8888',
+  'password' => 123456,
+]
+```
+
 # Usage
 
 ```

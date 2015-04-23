@@ -46,7 +46,9 @@ class Connection
   public function getConnection() 
   {
     if(!$this->_connection) {
-      $this->_connection = socket_connect($this->_host, $this->_port);
+      $socket = socket_create(AF_INET,SOCK_DGRAM,SOL_UDP);
+      socket_connect($socket, $this->_host, $this->_port);
+      $this->_connection = $socket;
     }
     return $this->_connection;  
   }

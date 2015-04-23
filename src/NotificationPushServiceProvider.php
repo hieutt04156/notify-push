@@ -13,9 +13,15 @@ class NotificationPushServiceProvider
   
   public function register() 
   {
-    $this->app->bindShare('notificationpush', function($app){
+    // Connection
+    $this->app->bindShare('notificationpushconnection', function($app){
       $config = $app->config->get('notificationpush::config');
       return new Connection($config);
+    });
+    
+    // Notification push
+    $this->app->bindShare('notificationpush', function($app){
+      return new Notification();
     });
   }
   

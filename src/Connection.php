@@ -8,7 +8,7 @@ class Connection
   /**
    * @var Socket
    */
-  private $_connection;
+  public $connection;
   
   /**
    * @var String
@@ -40,12 +40,12 @@ class Connection
    */
   public function getConnection() 
   {
-    if(!$this->_connection) {
+    if(!$this->connection) {
       $socket = socket_create(AF_INET,SOCK_DGRAM,SOL_UDP);
       socket_connect($socket, $this->_host, $this->_port);
-      $this->_connection = $socket;
+      $this->connection = $socket;
     }
-    return $this->_connection;  
+    return $this;
   }
   
   /**
@@ -54,7 +54,7 @@ class Connection
   public function send($data)
   {
     $data = json_encode($data);
-    socket_send($this->getConnection(), $data, strlen($data), 0);
+    socket_send($this->connection, $data, strlen($data), 0);
     return $this->read();
   }
   
@@ -63,7 +63,7 @@ class Connection
    */
   public function read() 
   {
-    return trim(socket_read($this->getConnection(), MAXLINE));  
+    return trim(socket_read($this->connection, MAXLINE));  
   }
   
 }

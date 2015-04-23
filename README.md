@@ -30,7 +30,10 @@ NotificationPush::send([
     'object' => [
       'type' => 'product',
       'id' => 10
-    ]
+    ],
+    'metadata' => [
+      'title' => ' bán đồng nát..., ai mua'
+    ],
   ]
 ]);
 
